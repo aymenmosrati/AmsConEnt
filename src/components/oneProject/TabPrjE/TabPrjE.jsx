@@ -4,7 +4,7 @@ import API from "../../../api/index";
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
 import "./TabPrjE.scss";
-
+import StatSingelPrj from "../StatistiqueSingelPrj/StatSingelPrj";
 const TabPrjE = () => {
     const params = useParams();
     const [state, setState] = useState(false);
@@ -57,6 +57,12 @@ const TabPrjE = () => {
         });
     }, []);
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const id_prj = params.id;
+    const NormIso =norme?.norme;
+
     return (
         <>
             {state ? (
@@ -64,10 +70,16 @@ const TabPrjE = () => {
                     <ul>
                         {/* <li><a className="active" href="#home">Diagnostic</a></li> */}
                         {/* <li><a href="#news">Résultats globaux</a></li> */}
-                        <li><div className="reg_prj"><a onClick={exportPDF}>Export PDF</a></div></li>
+                        <li>
+                            <div className="reg_prj">
+                                <a onClick={exportPDF}>Export PDF</a>
+                                <a onClick={handleShow}>Résultats globaux</a>
+                            </div>
+                        </li>
                     </ul>
+                    <StatSingelPrj data={{ handleClose: handleClose, show: show, chapitre, id_prj, NormIso }} />
                     <div id="tab" className="tab">
-                    <br/><br/>
+                        <br /><br />
                         <p className="norme">Grille d'autoévaluation selon la norme: {norme.norme}</p>
                         <div className="discription">
                             <div className="a">

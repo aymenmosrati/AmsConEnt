@@ -1,45 +1,44 @@
 div {
     .nav_bott {
         ul {
-            list-style-type: none;
-            margin: 0;
-            padding-bottom: 6px;
-            padding-left: 50px;
-            padding-top: 2px;
-            overflow: hidden;
-            background-color: rgb(255, 251, 251);
+            // list-style-type: none;
+            // margin: 0;
+            // padding-bottom: 6px;
+            // padding-top: 2px;
+            // overflow: hidden;
+            // background-color: rgb(255, 251, 251);
             // position: fixed;
-            top: 0;
-            width: 100%;
+            // width: 100%;
+            // display: flex;
+            padding-left: 989px;
+            top: 5px;
         }
 
         li {
-            float: left;
+            // float: left;
+            // display: flex;
 
         }
 
         li div a {
+            display: inline;
             background-color: rgb(191, 208, 245);
-            // margin-left: 800px;
-        }
-
-        li a {
-            display: block;
             color: rgb(199, 198, 198);
+            text-decoration: none;
             text-align: center;
             padding: 8px 15px;
-            text-decoration: none;
-            margin-left: 1050px;
+            margin-right: 10px;
             border-radius: 3px;
             font-size: 11px;
             cursor: pointer;
-            background-color: rgb(63, 60, 60);
         }
 
-        li div a:hover:not(.reg_prj) {
-            background-color: rgb(206, 209, 216);
-            color: rgb(63, 60, 60);
-        }
+      
+
+        // li div a:hover:not(.reg_prj) {
+        //     background-color: rgb(206, 209, 216);
+        //     color: rgb(63, 60, 60);
+        // }
 
         // li a:hover:not(.active) {
         //     background-color: rgb(75, 73, 73);

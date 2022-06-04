@@ -36,7 +36,7 @@ const Header = () => {
   const params = useParams();
   const curentUser = JSON.parse(localStorage.getItem("curentUser"));
 
-  console.log(params);
+  // console.log(params);
   return (
     <header className={classes.header}>
       <div className={classes.header__content}>
@@ -60,20 +60,6 @@ const Header = () => {
                 projets
               </Link>
             </li>
-            {params.n_c && params.n_e && params.d_d && params.d_f && `${curentUser?.user?.role}` == 'entreprise' ? (
-              <>
-                <li><Link to="/">Résultats globaux</Link></li>
-              </>
-            ) : (
-              <span></span>
-            )}
-            {params.n_c && params.n_e && params.d_d && params.d_f && `${curentUser?.user?.role}` == 'consultant' ? (
-              <>
-                <li><Link to="/">Résultats globaux</Link></li> 
-              </>
-            ) : (
-              <span></span>
-            )}
           </ul>
         </nav>
         <div className={classes.header__content__toggle}>

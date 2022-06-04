@@ -5,6 +5,7 @@ import AddTaskIcon from '@mui/icons-material/AddTask';
 import API from "../../../api/index";
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
+import StatSingelPrj from "../StatistiqueSingelPrj/StatSingelPrj";
 
 const TabPrjC = () => {
     const params = useParams();
@@ -18,7 +19,7 @@ const TabPrjC = () => {
     const [evaluation, setevaluation] = useState("");
     const [observation, setobservation] = useState("");
     const navigate = useNavigate();
-    
+
     const handelClick = (id) => {
         let result = { id, evaluation, observation }
 
@@ -58,17 +59,29 @@ const TabPrjC = () => {
         });
     }, []);
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const id_prj = params.id;
+    const NormIso =norme?.norme;
+
     return (
         <>
             {state ? (
                 <div className="nav_bott">
                     <ul>
-                         {/* <li><a className="active" href="#">Diagnostic</a></li>
+                        {/* <li><a className="active" href="#">Diagnostic</a></li>
                         <li><a href="#news">Résultats globaux</a></li>  */}
-                        <li><div className="reg_prj"><a onClick={exportPDF}>Export PDF</a></div></li>
+                        <li>
+                            <div className="reg_prj">
+                                <a onClick={exportPDF}>Export PDF</a>
+                                <a onClick={handleShow}>Résultats globaux</a>
+                            </div>
+                        </li>
                     </ul>
+                    <StatSingelPrj data={{ handleClose: handleClose, show: show, chapitre, id_prj, NormIso }} />
                     <div id="tab" className="tab">
-                        <br/><br/>
+                        <br /><br />
                         <p className="norme">Grille d'autoévaluation selon la norme: {norme.norme}</p>
                         <div className="discription">
                             <div className="a">
